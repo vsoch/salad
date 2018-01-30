@@ -66,6 +66,7 @@ func select_fork() string {
                              '========`
 
     forks[2] = `
+
                             _
                            / )
                      |||| / /
@@ -78,6 +79,7 @@ func select_fork() string {
                       ""`
  
     forks[3] = `
+
                        /\
                       //\\
                      //  \\
@@ -96,7 +98,9 @@ func select_fork() string {
                     /      \
                     \______/`
 
-    forks[4] = `⎯⎯∈`
+    forks[4] = `
+                                   ⎯⎯∈
+               `
 
 
     // Randomly select one
@@ -108,10 +112,6 @@ func select_fork() string {
 // Print Functions
 //
 
-func select_color() string {
-    //colors :=[]string{}
-    return "blue"    
-}
 
 
 func main() {
