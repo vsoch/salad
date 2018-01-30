@@ -47,7 +47,8 @@ func select_pun() string {
 
 func select_color() string {
          
-    colors := []string{"\033[95m",  // purple
+    colors := []string{"",
+                       "\033[95m",  // purple
                        "\033[93m",  // yellow
                        "\033[91m",  // red
                        "\033[31m",  // darkred
