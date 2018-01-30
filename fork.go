@@ -45,6 +45,18 @@ func select_pun() string {
 }
 
 
+func select_color() string {
+         
+    colors := []string{"\033[95m",  // purple
+                       "\033[93m",  // yellow
+                       "\033[91m",  // red
+                       "\033[31m",  // darkred
+                       "\033[36m"}  // cyan
+
+   return select_random(colors...)
+}
+
+
 func select_fork() string {
 
     
@@ -109,7 +121,7 @@ func select_fork() string {
 
 
 // 
-// Print Functions
+// Main
 //
 
 
@@ -118,9 +130,10 @@ func main() {
 
     pun := select_pun()              // 1. Select a random pun
     fork := select_fork()            // 2. Select a colored fork
+    color := select_color()
 
     fmt.Println()
-    fmt.Println(pun, fork)
+    fmt.Println(pun, color, fork, "\033[0m") // off sequence to end color
     fmt.Println()
 
     os.Exit(0)
