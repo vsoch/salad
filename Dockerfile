@@ -12,4 +12,5 @@ WORKDIR $SRC_DIR
 # Dependencies
 RUN go get github.com/urfave/cli
 RUN go build -o salad && cp salad /code/
-ENTRYPOINT ["./salad", "fork"]
+ENTRYPOINT ["./salad"]
+CMD ["fork"]

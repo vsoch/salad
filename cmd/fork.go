@@ -7,9 +7,7 @@ package cmd
 import (
 	"fmt"
 	"github.com/urfave/cli"
-	"math/rand"
 	"os"
-	"time"
 )
 
 // -----------------------------------------------------------------------------
@@ -25,10 +23,8 @@ var Fork = cli.Command{
 	Action:      printFork,
 	Flags: []cli.Flag{
 		stringFlag("message, m", "", "Give wisdom for your fork."),
+		stringFlag("color, c", "", "color your spoon"),
 	},
-
-	//TODO: add subcommands for color, etc.
-	// https://github.com/gogits/gogs/blob/master/cmd/hook.go#L40
 }
 
 // -----------------------------------------------------------------------------
@@ -38,16 +34,8 @@ var Fork = cli.Command{
 //
 // -----------------------------------------------------------------------------
 
-func selectRandom(choices ...string) string {
 
-	// Seed random number generator, won't be random without it
-	rand.Seed(time.Now().Unix())
-
-	// Make random selection
-	return choices[rand.Intn(len(choices))]
-}
-
-func selectPun() string {
+func selectForkPun() string {
 
 	// Create a "slice" (array) of puns
 	puns := []string{" You're done!",
@@ -66,18 +54,7 @@ func selectPun() string {
 
 	// Randomly select one
 	return selectRandom(puns...)
-}
 
-func selectColor() string {
-
-	colors := []string{"",
-		"\033[95m", // purple
-		"\033[93m", // yellow
-		"\033[91m", // red
-		"\033[31m", // darkred
-		"\033[36m"} // cyan
-
-	return selectRandom(colors...)
 }
 
 func selectFork() string {
@@ -151,13 +128,22 @@ func selectFork() string {
 
 func printFork(ctx *cli.Context) {
 
-	pun := selectPun()
-	if ctx.IsSet("message") { // 1. Select a random pun
+        // 1. Select a random pun
+
+	pun := selectForkPun()
+	if ctx.IsSet("message") {
 		pun = ctx.String("message")
 	}
 
-	fork := selectFork() // 2. Select a colored fork
-	color := selectColor()
+        
+        // 2. Select a fork
+
+	fork := selectFork()
+
+        // 3. Select a color
+
+        color := ctx.String("color")
+        color = selectColor(color)
 
 	fmt.Println()
 	fmt.Println(pun, color, fork, "\033[0m") // off sequence to end color

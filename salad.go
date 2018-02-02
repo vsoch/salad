@@ -30,7 +30,7 @@ func main() {
 	app.Version = Version
 	app.Commands = []cli.Command{
 		cmd.Fork,
-		//		cmd.Spoon,
+		cmd.Spoon,
 	}
 	app.Flags = append(app.Flags, []cli.Flag{}...)
 	app.Run(os.Args)
