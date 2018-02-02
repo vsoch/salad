@@ -3,7 +3,7 @@
 
 **@GodloveD**
 
-[![asciicast](https://asciinema.org/a/159960.png)](https://asciinema.org/a/159960?speed=2)
+[![asciicast](https://asciinema.org/a/160642.png)](https://asciinema.org/a/160642?speed=2)
 
 
 ## Local Development
