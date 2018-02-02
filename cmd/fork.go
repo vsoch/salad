@@ -34,7 +34,6 @@ var Fork = cli.Command{
 //
 // -----------------------------------------------------------------------------
 
-
 func selectForkPun() string {
 
 	// Create a "slice" (array) of puns
@@ -128,22 +127,21 @@ func selectFork() string {
 
 func printFork(ctx *cli.Context) {
 
-        // 1. Select a random pun
+	// 1. Select a random pun
 
 	pun := selectForkPun()
 	if ctx.IsSet("message") {
 		pun = ctx.String("message")
 	}
 
-        
-        // 2. Select a fork
+	// 2. Select a fork
 
 	fork := selectFork()
 
-        // 3. Select a color
+	// 3. Select a color
 
-        color := ctx.String("color")
-        color = selectColor(color)
+	color := ctx.String("color")
+	color = selectColor(color)
 
 	fmt.Println()
 	fmt.Println(pun, color, fork, "\033[0m") // off sequence to end color

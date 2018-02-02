@@ -25,7 +25,6 @@ var Spoon = cli.Command{
 		stringFlag("message, m", "", "Give wisdom for your spoon."),
 		stringFlag("color, c", "", "color your spoon"),
 	},
-
 }
 
 // -----------------------------------------------------------------------------
@@ -39,20 +38,19 @@ func selectSpoonPun() string {
 
 	// Create a "slice" (array) of puns
 	puns := []string{" See you spoon!",
-                         " They say I'm rather spoontaneous!",
-                         " Did you hear about... oh, too spoon?",
-                         " They call me the cereal kiler.",
-                         " Wanna spoon?",
-                         " My favorite actress? Reese Witherspoon!",
-                         " *singing* The dark side of... the spooooon!",
-                         " I'm a spoon. How would I know?",
-                         " If you want to be sharp, I'm the wrong utensil.",
-                         " I don't have a point. Go talk to Fork."}
+		" They say I'm rather spoontaneous!",
+		" Did you hear about... oh, too spoon?",
+		" They call me the cereal kiler.",
+		" Wanna spoon?",
+		" My favorite actress? Reese Witherspoon!",
+		" *singing* The dark side of... the spooooon!",
+		" I'm a spoon. How would I know?",
+		" If you want to be sharp, I'm the wrong utensil.",
+		" I don't have a point. Go talk to Fork."}
 
 	// Randomly select one
 	return selectRandom(puns...)
 }
-
 
 func selectSpoon() string {
 
@@ -144,19 +142,19 @@ func selectSpoon() string {
 
 func printSpoon(ctx *cli.Context) {
 
-        // 1. Select a random pun
-	
-        pun := selectSpoonPun()
+	// 1. Select a random pun
+
+	pun := selectSpoonPun()
 	if ctx.IsSet("message") {
-	        pun = ctx.String("message")
+		pun = ctx.String("message")
 	}
 
 	spoon := selectSpoon()
 
-        // 2. Select a colored spoon
+	// 2. Select a colored spoon
 
 	color := ctx.String("color")
-        color = selectColor(color)
+	color = selectColor(color)
 
 	fmt.Println()
 	fmt.Println(pun, color, spoon, "\033[0m") // off sequence to end color

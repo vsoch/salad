@@ -47,11 +47,9 @@ func selectColor(color string) string {
 		"cyan":    "\033[36m"}
 
 	if color != "" {
-		if val, ok := colors[color]; ok {
+		if _, ok := colors[color]; ok {
 			return colors[color]
-		} else {
-                        _ = val // declared and not used error
-                }
+		}
 	}
 
 	return selectRandomMap(colors)
