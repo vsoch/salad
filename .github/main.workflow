@@ -5,7 +5,7 @@ workflow "Deploy ImageDefinition Schema" {
 
 action "build" {
   uses = "actions/docker/cli@master"
-  args = "build -t ${GITHUB_REPO} ."
+  args = "build -t vanessa/salad ."
 }
 
 action "Extract ImageDefinition Schema" {
