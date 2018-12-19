@@ -3,13 +3,19 @@ workflow "Deploy ImageDefinition Schema" {
   resolves = ["Extract ImageDefinition Schema"]
 }
 
+action "build" {
+  uses = "actions/docker/cli@master"
+  args = "build -t ${GITHUB_REPO} ."
+}
+
 action "Extract ImageDefinition Schema" {
-  uses = "openschemas/extractors/ImageDefinition@master"
+  needs = ["build"]
+  uses = "docker://openschemas/extractors:ImageDefinition"
   secrets = ["GITHUB_TOKEN"]
   env = {
     IMAGE_THUMBNAIL = "https://vsoch.github.io/datasets/assets/img/avocado.png"
     IMAGE_ABOUT = "Generate ascii art for a fork or spoon, along with a pun."
     IMAGE_DESCRIPTION = "alpine base with GoLang and PUNS."
   }
-  args = ["extract", "--contact", "@vsoch", "--deploy"]
+  args = ["extract", "--contact", "@vsoch", "--deploy", "--name", "${GITHUB_REPO}", "--filename", "${GITHUB_WORKSPACE}/Dockerfile"]
 }
