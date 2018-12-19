@@ -8,8 +8,14 @@ action "build" {
   args = "build -t vanessa/salad ."
 }
 
-action "Extract ImageDefinition Schema" {
+action "list" {
   needs = ["build"]
+  uses = "actions/bin/sh@master"
+  args = ["ls", "/github/workspace"]
+}
+
+action "Extract ImageDefinition Schema" {
+  needs = ["build", "list"]
   uses = "docker://openschemas/extractors:ImageDefinition"
   secrets = ["GITHUB_TOKEN"]
   env = {
