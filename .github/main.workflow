@@ -11,7 +11,8 @@ action "build" {
 action "list" {
   needs = ["build"]
   uses = "actions/bin/sh@master"
-  args = ["ls", "/github/workspace"]
+  runs = "ls"
+  args = ["/github/workspace"]
 }
 
 action "Extract ImageDefinition Schema" {
