@@ -11,6 +11,5 @@ action "Extract ImageDefinition Schema" {
     IMAGE_ABOUT = "Generate ascii art for a fork or spoon, along with a pun."
     IMAGE_DESCRIPTION = "alpine base with GoLang and PUNS."
   }
-  args = ["extract", "--contact", "@vsoch", '--deploy']
+  args = ["extract", "--contact", "@vsoch", "--deploy"]
 }
-
