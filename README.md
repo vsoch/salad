@@ -3,8 +3,7 @@
 
 **@GodloveD**
 
-[![asciicast](https://asciinema.org/a/160642.png)](https://asciinema.org/a/160642?speed=2)
-
+[![asciicast](https://asciinema.org/a/160642.svg)](https://asciinema.org/a/160642?speed=2)
 
 ## Local Development
 You will need to install Go, and then have this repository in your src.
@@ -124,3 +123,8 @@ I wish I had a cupcake
 
        
 ```
+
+## Github Actions
+
+We provide an example Github Actions to deploy the metadata to Github pages,
+see the [.github/main.workflow](.github/main.workflow)
