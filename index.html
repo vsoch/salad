@@ -276,61 +276,63 @@ pre.line-numbers > code {
     <pre class="line-numbers">
     <code class="language-json">
 {
-    "version": "0.0.1",
+    "about": "Generate ascii art for a fork or spoon, along with a pun.",
     "@type": "ImageDefinition",
+    "@context": "http://www.schema.org",
+    "thumbnailUrl": "https://vsoch.github.io/datasets/assets/img/avocado.png",
+    "version": "0.0.1",
+    "description": "alpine base with GoLang and PUNS.",
     "entrypoint": [
         "[\"/code/salad\"]"
     ],
-    "runtime": "Docker",
+    "creator": {
+        "@type": "Person",
+        "name": "@vsoch",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support"
+        }
+    },
     "environment": [
         "SRC_DIR=/go/src/github.com/vsoch/salad/"
     ],
-    "about": "Generate ascii art for a fork or spoon, along with a pun.",
-    "description": "alpine base with GoLang and PUNS.",
+    "softwareRequirements": [],
+    "name": "vanessa/salad",
     "codeRepository": "https://www.github.com/vsoch/salad",
     "sameAs": "ImageDefinition",
-    "@context": "http://www.schema.org",
-    "thumbnailUrl": "https://vsoch.github.io/datasets/assets/img/avocado.png",
-    "name": "vanessa/salad",
-    "creator": {
-        "@type": "Person",
-        "contactPoint": {
-            "@type": "ContactPoint"
-        },
-        "name": "@vsoch"
-    },
-    "ContainerImage": "iron/go:dev",
-    "softwareRequirements": []
+    "runtime": "Docker",
+    "ContainerImage": "iron/go:dev"
 }
 </code></pre>
 </div>
 <script type="application/ld+json">
 {
-    "version": "0.0.1",
+    "about": "Generate ascii art for a fork or spoon, along with a pun.",
     "@type": "ImageDefinition",
+    "@context": "http://www.schema.org",
+    "thumbnailUrl": "https://vsoch.github.io/datasets/assets/img/avocado.png",
+    "version": "0.0.1",
+    "description": "alpine base with GoLang and PUNS.",
     "entrypoint": [
         "[\"/code/salad\"]"
     ],
-    "runtime": "Docker",
+    "creator": {
+        "@type": "Person",
+        "name": "@vsoch",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support"
+        }
+    },
     "environment": [
         "SRC_DIR=/go/src/github.com/vsoch/salad/"
     ],
-    "about": "Generate ascii art for a fork or spoon, along with a pun.",
-    "description": "alpine base with GoLang and PUNS.",
+    "softwareRequirements": [],
+    "name": "vanessa/salad",
     "codeRepository": "https://www.github.com/vsoch/salad",
     "sameAs": "ImageDefinition",
-    "@context": "http://www.schema.org",
-    "thumbnailUrl": "https://vsoch.github.io/datasets/assets/img/avocado.png",
-    "name": "vanessa/salad",
-    "creator": {
-        "@type": "Person",
-        "contactPoint": {
-            "@type": "ContactPoint"
-        },
-        "name": "@vsoch"
-    },
-    "ContainerImage": "iron/go:dev",
-    "softwareRequirements": []
+    "runtime": "Docker",
+    "ContainerImage": "iron/go:dev"
 }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.js"></script>
