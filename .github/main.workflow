@@ -25,5 +25,5 @@ action "Extract ImageDefinition Schema" {
     IMAGE_DESCRIPTION = "alpine base with GoLang and PUNS."
   }
   runs = "ls"
-  args ["/github/workspace", "/code"]
+  args = ["/github/workspace", "/code"]
 }
