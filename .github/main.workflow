@@ -24,6 +24,5 @@ action "Extract ImageDefinition Schema" {
     IMAGE_ABOUT = "Generate ascii art for a fork or spoon, along with a pun."
     IMAGE_DESCRIPTION = "alpine base with GoLang and PUNS."
   }
-  runs = "ls"
-  args = ["/github/workspace", "/code"]
+  args = ["extract", "--name", "vanessa/salad", "--contact", "@vsoch", "--filename", "/github/workspace/Dockerfile", "--deploy"]
 }
