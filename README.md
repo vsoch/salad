@@ -127,4 +127,5 @@ I wish I had a cupcake
 ## Github Actions
 
 We provide an example Github Actions to deploy the metadata to Github pages,
-see the [.github/main.workflow](.github/main.workflow)
+see the [.github/main.workflow](.github/main.workflow). For more about
+schema.org extractors, see the [openschemas/extractors](https://github.com/openschemas/extractors) repository.
