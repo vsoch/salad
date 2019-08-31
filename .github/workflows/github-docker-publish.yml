@@ -14,13 +14,15 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v1
-    - name: Login, build, and push to GitHub Docker Registry
+    - name: Build Container
+      run: |
+         DOCKER_TAG=$(echo "${GITHUB_SHA}" | cut -c1-12)
+         docker build -t quay.io/vanessa/salad:${DOCKER_TAG} .
+         docker tag quay.io/vanessa/salad:${DOCKER_TAG} quay.io/vanessa/salad:latest
+    - name: Deploy to Quay.io
       env:
         DEPLOY_LOGIN: ${{ secrets.DEPLOY_LOGIN }}
         DEPLOY_SECRET: ${{ secrets.DEPLOY_SECRET }}
       run: |
          docker login -u="${DEPLOY_LOGIN}" -p="${DEPLOY_SECRET}" quay.io
-         DOCKER_TAG=$(echo "${GITHUB_SHA}" | cut -c1-12)
-         docker build -t quay.io/vanessa/salad:${DOCKER_TAG} .
-         docker tag quay.io/vanessa/salad:${DOCKER_TAG} quay.io/vanessa/salad:latest
          docker push quay.io/vanessa/salad
