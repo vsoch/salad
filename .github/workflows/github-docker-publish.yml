@@ -16,10 +16,11 @@ jobs:
       uses: actions/checkout@v1
     - name: Login, build, and push to GitHub Docker Registry
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEPLOY_LOGIN: ${{ secrets.DEPLOY_LOGIN }}
+        DEPLOY_SECRET: ${{ secrets.DEPLOY_SECRET }}
       run: |
-         docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${{ secrets.GITHUB_TOKEN }}
+         docker login -u="${DEPLOY_LOGIN}" -p="${DEPLOY_SECRET}" quay.io
          DOCKER_TAG=$(echo "${GITHUB_SHA}" | cut -c1-12)
-         docker build -t docker.pkg.github.com/${GITHUB_REPOSITORY}:${DOCKER_TAG} .
-         docker tag docker.pkg.github.com/${GITHUB_REPOSITORY}:${DOCKER_TAG} docker.pkg.github.com/${GITHUB_REPOSITORY}:latest
-         docker push docker.pkg.github.com/${GITHUB_REPOSITORY}
+         docker build -t quay.io/vanessa/salad:${DOCKER_TAG} .
+         docker tag quay.io/vanessa/salad:${DOCKER_TAG} quay.io/vanessa/salad:latest
+         docker push quay.io/vanessa/salad
