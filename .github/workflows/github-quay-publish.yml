@@ -1,0 +1,28 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  build:
+ 
+    runs-on: ubuntu-18.04
+ 
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v1
+    - name: Build Container
+      run: |
+         DOCKER_TAG=$(echo "${GITHUB_SHA}" | cut -c1-12)
+         docker build -t quay.io/vanessa/salad:${DOCKER_TAG} .
+         docker tag quay.io/vanessa/salad:${DOCKER_TAG} quay.io/vanessa/salad:latest
+    - name: Deploy to Quay.io
+      env:
+        DEPLOY_LOGIN: ${{ secrets.DEPLOY_LOGIN }}
+        DEPLOY_SECRET: ${{ secrets.DEPLOY_SECRET }}
+      run: |
+         docker login -u="${DEPLOY_LOGIN}" -p="${DEPLOY_SECRET}" quay.io
+         docker push quay.io/vanessa/salad
